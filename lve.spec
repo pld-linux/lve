@@ -12,7 +12,7 @@ Source1:	http://dl.sourceforge.net/ffmpeg/ffmpeg-0.4.8.tar.gz
 # Source1-md5:	e00d47614ba1afd99ad2ea387e782dd9
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
-BuildRequires:	a52dec-devel
+BuildRequires:	a52dec-libs-devel
 BuildRequires:	ffmpeg-devel
 BuildRequires:	gcc-c++
 BuildRequires:	mpeg2dec-devel
