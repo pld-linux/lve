@@ -7,7 +7,9 @@ License:	GPL
 Group:		Applications/Multimedia
 URL:		http://lvempeg.sourceforge.net/
 Source0:	http://dl.sf.net/lvempeg/%{name}-%{_snap}.src.tar.bz2
+# Source0-md5:	079f976cee2b26a96caf3e4428c6456d
 Source1:	http://dl.sf.net/ffmpeg/ffmpeg-0.4.8.tar.gz
+# Source1-md5:	e00d47614ba1afd99ad2ea387e782dd9
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	a52dec-devel
