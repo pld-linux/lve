@@ -1,6 +1,6 @@
 Summary:	Linux Video Editor
 Name:		lve
-%define _snap 040322
+%define _snap 050112
 Version:	0.%{_snap}
 Release:	1
 License:	GPL
@@ -32,8 +32,8 @@ and DVD authoring are also available.
 %prep
 %setup -q -n %{name}
 
-sed -i "s,liba52/,a52dec/,g" src/*
-tar -xzvf %{SOURCE1}
+#sed -i "s,liba52/,a52dec/,g" src/*
+tar -xzf %{SOURCE1}
 rm ffmpeg
 ln -s ffmpeg-0.4.8 ffmpeg
 sed -i "s,%{_prefix}/local/lve/bin/lverequant,%{_bindir}/lverequant,g" src/lvedump.c
