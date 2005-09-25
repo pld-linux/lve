@@ -41,10 +41,13 @@ sed -i "s,%{_prefix}/local/lve/lib,%{_datadir}/lve/lib,g" src/lve.h
 sed -i "s,%{_prefix}/local/lve/bin,%{_bindir},g" src/lve.h
 
 %build
+%{__make} -C qdir \
+	QT_INCLUDE=-I%{_includedir}/qt
+
 %{__make} all-recursive \
 	INCLUDE="-I../ffmpeg/libavcodec -I%{_includedir}/mpeg2dec" \
 	QT_DIR=%{_prefix} \
-	SUBDIRS="qdir src"
+	SUBDIRS="src"
 
 %install
 rm -rf $RPM_BUILD_ROOT
