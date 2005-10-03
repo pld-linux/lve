@@ -12,6 +12,7 @@ Source0:	http://dl.sourceforge.net/lvempeg/%{name}-%{_snap}.src.tar.bz2
 # Source0-md5:	0752ec29e7fe2fa1be83d9a86441b3bb
 Source1:	http://dl.sourceforge.net/ffmpeg/ffmpeg-0.4.8.tar.gz
 # Source1-md5:	e00d47614ba1afd99ad2ea387e782dd9
+Patch0:		%{name}-a52dec.patch
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	a52dec-libs-devel
@@ -42,6 +43,7 @@ zmniejszania i sk³adania DVD.
 
 %prep
 %setup -q -n %{name}
+%patch0 -p1
 
 #sed -i "s,liba52/,a52dec/,g" src/*
 tar -xzf %{SOURCE1}
