@@ -1,4 +1,6 @@
+# TODO: optflags
 Summary:	Linux Video Editor
+Summary(pl):	Linux Video Editor - edytor filmów dla Linuksa
 Name:		lve
 %define _snap 050112
 Version:	0.%{_snap}
@@ -28,6 +30,15 @@ and fast seeking to every frame. The GUI is based on libSDL. Video
 scenes are handled as thumbnails movable by drag and drop. Final
 videos can be build with or without re-encoding. Tools for shrinking
 and DVD authoring are also available.
+
+%description -l pl
+LVE pozwala na edycjê z dok³adno¶ci± do klatki i GOP strumieni
+elementarnych ("ES") oraz programowych ("PS") MPEG1/2, w³±cznie z
+formatem VOB. Silnik obcinaj±cy jest oparty na serwerze ramek
+(demuxerze), gwarantuj±cym dok³adne i szybkie przeskakiwanie do ka¿dej
+klatki. Interfejs graficzny oparty jest na libSDL. Sceny filmów mo¿na
+tworzyæ z lub bez ponownego kodowania. Dostêpne s± tak¿e narzêdzia do
+zmniejszania i sk³adania DVD.
 
 %prep
 %setup -q -n %{name}
@@ -62,9 +73,6 @@ install -D src/lvemux $RPM_BUILD_ROOT%{_bindir}/lvemux
 install -D src/lverequant $RPM_BUILD_ROOT%{_bindir}/lverequant
 install -D qdir/qdir $RPM_BUILD_ROOT%{_bindir}/qdir
 install -D bin/lvefilter $RPM_BUILD_ROOT%{_bindir}/lvefilter
-
-%post -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
 
 %clean
 rm -rf $RPM_BUILD_ROOT
