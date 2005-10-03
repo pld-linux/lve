@@ -1,0 +1,11 @@
+--- ../../lve/src/frame_srv.c~	2004-03-30 10:17:47.000000000 +0300
++++ ../../lve/src/frame_srv.c	2005-09-25 15:20:48.000000000 +0300
+@@ -29,7 +29,7 @@
+ {
+ #endif
+ 
+-#include "liba52/a52.h"
++#include "a52dec/a52.h"
+ 
+ #ifdef __cplusplus
+ }
