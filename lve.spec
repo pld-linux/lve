@@ -1,10 +1,9 @@
-# TODO: optflags
 Summary:	Linux Video Editor
 Summary(pl):	Linux Video Editor - edytor filmów dla Linuksa
 Name:		lve
 %define _snap 050112
 Version:	0.%{_snap}
-Release:	1
+Release:	0.1
 License:	GPL
 Group:		Applications/Multimedia
 URL:		http://lvempeg.sourceforge.net/
@@ -13,11 +12,13 @@ Source0:	http://dl.sourceforge.net/lvempeg/%{name}-%{_snap}.src.tar.bz2
 Source1:	http://dl.sourceforge.net/ffmpeg/ffmpeg-0.4.8.tar.gz
 # Source1-md5:	e00d47614ba1afd99ad2ea387e782dd9
 Patch0:		%{name}-a52dec.patch
+Patch1:		%{name}-path.patch
+Patch2:		%{name}-optflags.patch
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
 BuildRequires:	a52dec-libs-devel
 BuildRequires:	ffmpeg-devel
-BuildRequires:	gcc-c++
+BuildRequires:	gcc-c++ >= 5:3.3.0
 BuildRequires:	mpeg2dec-devel
 BuildRequires:	qt-devel
 BuildRequires:	sed >= 4.0
@@ -44,20 +45,26 @@ zmniejszania i sk³adania DVD.
 %prep
 %setup -q -n %{name}
 %patch0 -p1
+%patch1 -p1
+%patch2 -p1
 
 #sed -i "s,liba52/,a52dec/,g" src/*
 tar -xzf %{SOURCE1}
-rm ffmpeg
-ln -s ffmpeg-0.4.8 ffmpeg
-sed -i "s,%{_prefix}/local/lve/bin/lverequant,%{_bindir}/lverequant,g" src/lvedump.c
-sed -i "s,%{_prefix}/local/lve/lib,%{_datadir}/lve/lib,g" src/lve.h
-sed -i "s,%{_prefix}/local/lve/bin,%{_bindir},g" src/lve.h
+ln -snf ffmpeg-0.4.8 ffmpeg
+
+rm -rf mpeg2dec{,-0.4.0}
+
+ln -sf global_config.gcc330 src/global_config
 
 %build
 %{__make} -C qdir \
+	CC="%{__cxx}" \
+	CFLAGS="%{rpmcxxflags}" \
 	QT_INCLUDE=-I%{_includedir}/qt
 
 %{__make} all-recursive \
+	CC="%{__cxx}" \
+	OPTFLAGS="%{rpmcxxflags}" \
 	INCLUDE="-I../ffmpeg/libavcodec -I%{_includedir}/mpeg2dec" \
 	QT_DIR=%{_prefix} \
 	SUBDIRS="src"
