@@ -1,0 +1,57 @@
+--- ./qdir/Makefile~	2002-12-17 14:10:53.000000000 +0200
++++ ./qdir/Makefile	2005-11-05 20:23:25.000000000 +0200
+@@ -3,6 +3,7 @@
+ QT_INCLUDE = -I$(QT_DIR)/include
+ #
+ CFLAGS=
++CC		= g++
+ 
+ all:	qdir
+ 
+@@ -11,11 +12,11 @@
+ 
+ #-- rules --
+ .cpp.o:
+-	g++ -c $(CFLAGS) $(QT_INCLUDE) -o $@ $<
++	$(CC) -c $(CFLAGS) $(QT_INCLUDE) -o $@ $<
+ 
+ #-- program --
+ qdir:	qdir.o
+-	g++ $(QT_LIB) -o qdir qdir.o
++	$(CC) $(QT_LIB) -o qdir qdir.o
+ 
+ 
+ qdir.o: qdir.cpp
+--- ./src/Makefile~	2003-12-28 15:19:37.000000000 +0200
++++ ./src/Makefile	2005-11-05 20:25:23.000000000 +0200
+@@ -4,8 +4,9 @@
+ include ./global_config
+ CC  = g++
+ INCLUDE = -I../mpeg2dec/include/ -I../ffmpeg/libavcodec/ 
+-CFLAGS += -g -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
+-CFLAGS += $(INCLUDE)
++OPTFLAGS = -g
++CFLAGS += -D_FILE_OFFSET_BITS=64 -D_LARGEFILE_SOURCE
++CFLAGS += $(INCLUDE) $(OPTFLAGS)
+ #
+ # END OF USER CONFIGURATION
+ LIB_MPEG2  = -L../mpeg2dec/libmpeg2/.libs/ -lmpeg2 
+@@ -95,4 +96,4 @@
+ #
+ lvemux.o: lvemux.c mux_out.h
+ mux_out.o: mux_out.c mux_out.h
+-#
+\ No newline at end of file
++#
+--- ./src/Makefile~	2005-11-05 20:27:25.000000000 +0200
++++ ./src/Makefile	2005-11-05 20:28:21.000000000 +0200
+@@ -36,8 +36,7 @@
+ 	$(CC) $(CFLAGS) -o lve $(OBJ_LVE) $(LIB_WRAP) $(LIB_LVE)
+ 
+ lvefilter:
+-	gcc -o ../bin/lvefilter lvefilter.c
+-
++	$(CC) $(CFLAGS) -o ../bin/lvefilter lvefilter.c
+ 
+ lvemkidx: lvemkidx.o frame_srv.o liblve.a
+ 	$(CC) -o lvemkidx lvemkidx.o $(LIB_WRAP) $(LIB_MPEG2) $(LIB_FFMPEG)
