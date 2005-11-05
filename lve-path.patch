@@ -24,29 +24,3 @@ diff -ur lve/new/lvedump.c lve-l/new/lvedump.c
                    shrink_f, FN_FIFO, vfn);
            fprintf(stderr, "[0] launch: %s\n", cmd);
            system(cmd);
-diff -ur lve/src/lve.h lve-l/src/lve.h
---- lve/src/lve.h	2003-12-30 14:04:49.000000000 +0200
-+++ lve-l/src/lve.h	2005-11-05 20:14:23.000000000 +0200
-@@ -28,8 +28,8 @@
- #include "mediafile.h"
- 
- //-- default path + names --
--#define PATH_LIB	"/usr/local/lve/lib/"
--#define PATH_BIN	"/usr/local/lve/bin/"
-+#define PATH_LIB	"/usr/share/lve/lib/"
-+#define PATH_BIN	"/usr/bin/"
- #define FN_SCREEN_BMP	"lve.bmp"
- 
- //-- qdir modes + filters --
-diff -ur lve/src/lvedump.c lve-l/src/lvedump.c
---- lve/src/lvedump.c	2004-02-13 09:31:01.000000000 +0200
-+++ lve-l/src/lvedump.c	2005-11-05 20:14:23.000000000 +0200
-@@ -289,7 +289,7 @@
-           }
-           
-           //-- video stream floats through requantizer fifo into output file --
--          sprintf(cmd, "/usr/local/lve/bin/lverequant %2.1f %s %s&", 
-+          sprintf(cmd, "/usr/bin/lverequant %2.1f %s %s&", 
-                   shrink_f, FN_FIFO, vfn);
-           fprintf(stderr, "[0] launch: %s\n", cmd);
-           system(cmd);
