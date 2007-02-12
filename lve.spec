@@ -1,5 +1,5 @@
 Summary:	Linux Video Editor
-Summary(pl):	Linux Video Editor - edytor filmów dla Linuksa
+Summary(pl.UTF-8):   Linux Video Editor - edytor filmÃ³w dla Linuksa
 Name:		lve
 %define _snap 050112
 Version:	0.%{_snap}
@@ -33,14 +33,14 @@ scenes are handled as thumbnails movable by drag and drop. Final
 videos can be build with or without re-encoding. Tools for shrinking
 and DVD authoring are also available.
 
-%description -l pl
-LVE pozwala na edycjê z dok³adno¶ci± do klatki i GOP strumieni
-elementarnych ("ES") oraz programowych ("PS") MPEG1/2, w³±cznie z
-formatem VOB. Silnik obcinaj±cy jest oparty na serwerze ramek
-(demuxerze), gwarantuj±cym dok³adne i szybkie przeskakiwanie do ka¿dej
-klatki. Interfejs graficzny oparty jest na libSDL. Sceny filmów mo¿na
-tworzyæ z lub bez ponownego kodowania. Dostêpne s± tak¿e narzêdzia do
-zmniejszania i sk³adania DVD.
+%description -l pl.UTF-8
+LVE pozwala na edycjÄ™ z dokÅ‚adnoÅ›ciÄ… do klatki i GOP strumieni
+elementarnych ("ES") oraz programowych ("PS") MPEG1/2, wÅ‚Ä…cznie z
+formatem VOB. Silnik obcinajÄ…cy jest oparty na serwerze ramek
+(demuxerze), gwarantujÄ…cym dokÅ‚adne i szybkie przeskakiwanie do kaÅ¼dej
+klatki. Interfejs graficzny oparty jest na libSDL. Sceny filmÃ³w moÅ¼na
+tworzyÄ‡ z lub bez ponownego kodowania. DostÄ™pne sÄ… takÅ¼e narzÄ™dzia do
+zmniejszania i skÅ‚adania DVD.
 
 %prep
 %setup -q -n %{name}
