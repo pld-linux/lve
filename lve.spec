@@ -1,5 +1,5 @@
 Summary:	Linux Video Editor
-Summary(pl.UTF-8):   Linux Video Editor - edytor filmów dla Linuksa
+Summary(pl.UTF-8):	Linux Video Editor - edytor filmów dla Linuksa
 Name:		lve
 %define _snap 050112
 Version:	0.%{_snap}
