@@ -44,9 +44,9 @@ zmniejszania i składania DVD.
 
 %prep
 %setup -q -n %{name}
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
 
 #sed -i "s,liba52/,a52dec/,g" src/*
 tar -xzf %{SOURCE1}
